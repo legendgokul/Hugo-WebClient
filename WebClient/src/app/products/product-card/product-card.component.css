@@ -1,0 +1,16 @@
+.card img {
+    max-width: 100%; /* Ensure the image fits the card width */
+    max-height: auto;/* Maintain the image's aspect ratio */
+    border-bottom: 2px solid black;
+
+      
+}
+
+  .card {
+    width: 18rem;
+    height: 30rem; /* Adjust the width as needed */
+    border: 1px solid #ccc; /* Add a border if desired */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a shadow for depth */
+    border:2px solid black;  
+}
+

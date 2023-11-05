@@ -1,0 +1,12 @@
+<div *ngIf="product" >
+        <div class="card mb-4">
+                <img src="{{product.image}}" alt="adc" >
+            <div class="card-body p-1">
+                <h6 class="card-title text-center mb-1">
+                    <i class="fa fa-user me-2"></i>
+                    {{product.description}}
+                </h6>
+                <p class="card-text text-muted text-center"> ₹{{product.price}}</p>
+            </div>
+        </div>
+</div>

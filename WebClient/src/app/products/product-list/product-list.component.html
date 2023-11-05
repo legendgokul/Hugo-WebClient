@@ -1,0 +1,7 @@
+
+<div *ngIf="productList" class="d-flex flex-row flex-wrap">
+    <div *ngFor="let product of productList" >
+        <app-product-card [product]="product"></app-product-card>
+    </div>
+</div>
+
