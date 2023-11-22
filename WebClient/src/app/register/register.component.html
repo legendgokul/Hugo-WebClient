@@ -1,0 +1,143 @@
+<div class="col-5 m- ms-auto me-auto">
+    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+        <input
+          type="radio"
+          class="btn-check"
+          name="btnradio"
+          id="btnradio1"
+          autocomplete="off"
+          (change)="ToggleLogin = true"
+          [checked]="ToggleLogin"
+        />
+        <label class="btn btn-outline-primary" for="btnradio1">Login</label>
+        <input
+          type="radio"
+          class="btn-check"
+          name="btnradio"
+          id="btnradio2"
+          autocomplete="off"
+          (change)="ToggleLogin = false"
+          [checked]="!ToggleLogin"
+        />
+        <label class="btn btn-outline-primary" for="btnradio2">Register</label>
+      </div>
+      
+    
+    <div *ngIf="ToggleLogin">
+        <form [formGroup]="loginForm" (ngSubmit)="loginForm.valid && login()" autocomplete="off">
+            
+            <hr>     
+            <app-text-input  
+            [formControl]="$any(loginForm.controls['email'])" 
+            [propertyName]="'email'" 
+            [label]="'Email'"
+            [type]="'email'"
+            ></app-text-input>
+        
+            <app-text-input  
+            [formControl]="$any(loginForm.controls['password'])" 
+            [propertyName]="'password'" 
+            [label]="'Password'"
+            [type]="'password'"
+            ></app-text-input>
+        
+            
+            <!-- <div class="row" *ngIf="validationErrors">
+                <ul class="text-danger">
+                    <li *ngFor="let err of validationErrors"> {{err}}</li>
+                </ul>
+            </div> -->
+            
+            
+            <div class="text-center mb-3">    
+                <button type="submit"  [disabled]="!loginForm.valid" class="btn btn-outline-primary  me-4">Submit</button>
+                <button type="button" (click)="cancel()" class="btn btn-outline-danger ">Cancel</button>
+            </div>
+        </form>
+    
+        <hr>
+        <h6 class="text-center">New to Hugo?</h6>
+        <div class="text-center">
+            <button class="btn btn-outline-primary mx-auto" (click)="ToggleLogin = false">Create a new account</button>
+        </div>
+    </div>
+    
+    <div *ngIf="!ToggleLogin">
+        
+    <!-- ngForm is a angular form instance, we can declare a form using #<custom form name> .
+        (ngSubmit) : calls a function once submit event happens through a button with type submit 
+    -->
+    
+    <form [formGroup]="registerForm" (ngSubmit)="registerForm.valid && register()" autocomplete="off">
+        <hr>
+        <app-text-input  
+        [formControl]="$any(registerForm.controls['username'])" 
+        [propertyName]="'username'" 
+        [label]="'Username'"
+        [type]="'text'"
+        ></app-text-input>
+       
+        <app-text-input  
+        [formControl]="$any(registerForm.controls['email'])" 
+        [propertyName]="'email'" 
+        [label]="'Email'"
+        [type]="'email'"
+        ></app-text-input>
+    
+        <app-text-input  
+        [formControl]="$any(registerForm.controls['street'])" 
+        [propertyName]="'street'" 
+        [label]="'Street'"
+        [type]="'text'"
+        ></app-text-input> 
+    
+        <app-text-input  
+        [formControl]="$any(registerForm.controls['city'])" 
+        [propertyName]="'city'" 
+        [label]="'City'"
+        [type]="'text'"
+        ></app-text-input>
+    
+        <app-text-input  
+        [formControl]="$any(registerForm.controls['country'])" 
+        [propertyName]="'country'" 
+        [label]="'Country'"
+        [type]="'text'"
+        ></app-text-input> 
+    
+        <app-text-input  
+        [formControl]="$any(registerForm.controls['pincode'])" 
+        [propertyName]="'pincode'" 
+        [label]="'Pincode'"
+        [type]="'text'"
+        ></app-text-input> 
+    
+        <app-text-input  
+        [formControl]="$any(registerForm.controls['password'])" 
+        [propertyName]="'password'" 
+        [label]="'Password'"
+        [type]="'password'"
+        ></app-text-input>
+    
+        <app-text-input  
+        [formControl]="$any(registerForm.controls['confirmPassword'])" 
+        [propertyName]="'confirmPassword'" 
+        [label]="'Confirm Password'"
+        [type]="'password'"
+        ></app-text-input>
+        
+        <!-- <div class="row" *ngIf="validationErrors">
+            <ul class="text-danger">
+                <li *ngFor="let err of validationErrors"> {{err}}</li>
+            </ul>
+        </div> -->
+        
+        
+        <div class="text-center mb-3">    
+            <button type="submit"  [disabled]="!registerForm.valid" class="btn btn-outline-primary  me-4">Submit</button>
+            <button type="button" (click)="cancel()" class="btn btn-outline-danger ">Cancel</button>
+        </div>
+    </form>
+    
+    </div>
+</div>

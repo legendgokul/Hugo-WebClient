@@ -9,6 +9,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProductListComponent } from './products/product-list/product-list.component';
 import { ProductCardComponent } from './products/product-card/product-card.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CartTemplateComponent } from './cart/cart-template/cart-template.component';
+import { RegisterComponent } from './register/register.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TextInputComponent } from './_form/text-input/text-input.component';
+
+
+
 
 @NgModule({
   declarations: [
@@ -16,14 +23,19 @@ import { HttpClientModule } from '@angular/common/http';
     HomepageComponent,
     NavbarComponent,
     ProductListComponent,
-    ProductCardComponent
+    ProductCardComponent,
+    CartTemplateComponent,
+    RegisterComponent,
+    TextInputComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    BsDropdownModule.forRoot()
+    BsDropdownModule.forRoot(),
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
